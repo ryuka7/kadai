@@ -1,4 +1,4 @@
-
+@use "../foundation" as f;
 
 .l-header{
     width: 100%;
@@ -51,6 +51,9 @@
         
     }
     &__nav{
+        height: 100%;
+        display: flex;
+        align-items: center;
         &__body{
             display: flex;
             margin: 0 ;
@@ -60,17 +63,28 @@
                 li{
                     display: inline-block;
                     height: auto;
-                    margin-right: 25px;
                     transition: 0.3s;
+                    &:last-child a{
+                        background-color: f.$link-lastchild;
+                        color: #fff;
+                    }
                 }
                 a{
+                    display: flex;
                     margin: 0 auto;
+                    padding: 0 15px;
                     color: #000;
+                    height: 70px;
+                    align-items: center;
+                    
                     &:hover{
-                        background-color: $link-hover;
+                        background-color: f.$link-hover;
+                        height: 70px;
+                        align-items: center;
                     }
+                    
                 }
             }
         }
-    
 }
+

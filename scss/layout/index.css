@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .l-header {
   width: 100%;
   height: 70px;
@@ -41,6 +45,11 @@
   margin-left: auto;
   font-weight: 700;
 }
+.l-header__nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 .l-header__nav__body {
   display: flex;
   margin: 0;
@@ -50,9 +59,72 @@
 .l-header__nav__body li {
   display: inline-block;
   height: auto;
-  margin-right: 25px;
+  transition: 0.3s;
+}
+.l-header__nav__body li:last-child a {
+  background-color: #2498B3;
+  color: #fff;
 }
 .l-header__nav__body a {
+  display: flex;
   margin: 0 auto;
+  padding: 0 15px;
   color: #000;
+  height: 70px;
+  align-items: center;
+}
+.l-header__nav__body a:hover {
+  background-color: #D4F1F8;
+  height: 70px;
+  align-items: center;
+}
+
+.l-main__topHead {
+  position: relative;
+  height: 650px;
+  overflow: hidden;
+  background: transparent url(/images/bg-hero3.webp) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.l-main__topHead__layer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.l-main__topHead__layer1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  background: transparent url(/images/bg-hero1.webp) no-repeat center center;
+  z-index: 200;
+}
+.l-main__topHead__body {
+  max-width: 530px;
+  border-radius: 10px;
+  padding: 43px 40px 19px 40px;
+  background-color: #FFF;
+  text-align: center;
+  z-index: 300;
+}
+.l-main__topHead__tittle {
+  display: block;
+  line-height: 1.3;
+  font-weight: 700;
+  font-size: 16px;
+}
+.l-main__topHead__tittle img {
+  width: 280px;
+  height: auto;
+}
+.l-main__topHead__tittle p {
+  margin: 1em 0 1.5em;
+  line-height: 1.5;
+}
+.l-main__topHead__layer2 {
+  background: transparent url(/images/bg-hero2.webp) no-repeat center center;
+  z-index: 100;
 }/*# sourceMappingURL=index.css.map */
