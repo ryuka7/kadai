@@ -79,6 +79,9 @@ a {
   align-items: center;
 }
 
+.l-main {
+  padding-top: 70px;
+}
 .l-main__topHead {
   position: relative;
   height: 650px;
@@ -103,9 +106,13 @@ a {
   z-index: 200;
 }
 .l-main__topHead__body {
+  position: inherit;
+  top: 70px;
   max-width: 530px;
+  min-width: 412px;
+  min-height: 331px;
   border-radius: 10px;
-  padding: 43px 40px 19px 40px;
+  padding: 43px 40px 23px 40px;
   background-color: #FFF;
   text-align: center;
   z-index: 300;
@@ -122,9 +129,73 @@ a {
 }
 .l-main__topHead__tittle p {
   margin: 1em 0 1.5em;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 .l-main__topHead__layer2 {
   background: transparent url(/images/bg-hero2.webp) no-repeat center center;
   z-index: 100;
+}
+
+.l-recomendation__wrapper {
+  display: flex;
+  min-width: 1078px;
+  background-color: #000;
+  position: relative;
+  justify-content: space-between;
+  padding: 4em;
+}
+
+.l-recomendation {
+  display: flex;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1000;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+}
+.l-recomendation__entry {
+  min-width: 200px;
+  margin: 0 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 229px;
+}
+.l-recomendation__entry__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin: 0.2em 0 0 0;
+  font-weight: 700;
+  font-size: 24px;
+}
+.l-recomendation__entry__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: -263px;
+  position: relative;
+  color: #fff;
+  background-color: #fff;
+  border: solid 6px #000;
+  border-radius: 50%;
+  height: 230px;
+  width: 230px;
+}
+.l-recomendation__entry__icon .fa-user:before {
+  content: "\f007";
+  color: #000;
+  font-size: 100px;
+}
+.l-recomendation__entry__icon__body {
+  width: 230px;
+  height: auto;
+  justify-content: center;
+  color: #fff;
+  line-height: 1.7;
+  font-weight: 700;
+  margin: 0.5em 0 0 0;
 }/*# sourceMappingURL=index.css.map */
