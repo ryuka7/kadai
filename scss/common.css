@@ -79,6 +79,18 @@ a {
   height: 70px;
   align-items: center;
 }
+.l-header__nav__body li:hover .l-header__nav__accordion {
+  display: block;
+}
+
+.l-header__nav__accordion {
+  top: 70px;
+  left: 0;
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1000;
+}
 .l-header .l-header__nav__accordion {
   top: 70px;
   left: 0;
