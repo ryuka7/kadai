@@ -1,10 +1,9 @@
 @use "../foundation" as f;
 
-.l-header{
+.l-header {
     width: 100%;
     height: 70px;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
     background: #fff;
     z-index: 2000;
@@ -12,135 +11,107 @@
     top: 0;
     left: 0;
     text-decoration: none;
-    
-    &__title{
+
+    &__title {
         display: flex;
         margin: 0 0 0 21px;
         align-items: center;
-            &__logo{
-                display: flex;
-            }
-            
-            img{
-                height: 33px;
-                width: auto;
-            }
-           span{
-                display: inline-block;
-                margin: 0 auto;
-                padding-left: 20px;
-                white-space: nowrap;
-                line-height: 1.3;
-                font-weight: 900;
-                font-size: 14px;
-                color: #000;
 
-                strong{
-                    font-size: 1.2rem;
-                }
-            }   
+        &__logo {
+            display: flex;
         }
-        
-    &__link{
+
+        img {
+            height: 33px;
+            width: auto;
+        }
+
+        span {
+            display: inline-block;
+            margin: 0 auto;
+            padding-left: 20px;
+            white-space: nowrap;
+            line-height: 1.3;
+            font-weight: 900;
+            font-size: 14px;
+            color: #000;
+
+            strong {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    &__link {
         display: flex;
         align-items: center;
         margin-left: auto;
-        font-weight: 700;   
-        }
+        font-weight: 700;
+    }
 
-    &__nav{
+    &__nav {
         height: 100%;
         display: flex;
         align-items: center;
-        &__body{
+
+        &__body {
             display: flex;
-            margin: 0 ;
+            margin: 0;
             padding: 0;
             list-style: none;
-            
-                li{
-                    position: relative;
-                    display: flex;
-                    height: auto;
-                    transition: 0.3s;
-                    &:last-child a{
-                        background-color: f.$link-lastchild;
-                        color: #fff;
-                    }
+
+            li {
+                position: relative;
+                display: flex;
+                height: auto;
+                transition: 0.3s;
+
+                &:last-child a {
+                    background-color: f.$link-lastchild;
+                    color: #fff;
                 }
-                a{
-                    display: flex;
-                    margin: 0 auto;
-                    padding: 0 15px;
-                    color: #000;
+
+                // マウスオーバーでサブメニューを表示
+                &:hover .l-header__nav__accordion {
+                    display: block;
+                }
+            }
+
+            a {
+                display: flex;
+                margin: 0 auto;
+                padding: 0 15px;
+                color: #000;
+                height: 70px;
+                align-items: center;
+
+                &:hover {
+                    background-color: f.$link-hover;
                     height: 70px;
                     align-items: center;
-                    
-                    &:hover{
-                        background-color: f.$link-hover;
-                        height: 70px;
-                        align-items: center;
-                    }
-                    
                 }
             }
         }
-        
+    }
 }
-        .l-header__nav__accordion{
-            top: 70px;
-            left: 0;
-            display: none;
-            position: absolute;
 
-            .l-header__nav__body li :hover ul li{
-                display: block;
-                transition: 0.3s;
-            }
+// サブメニュー（非表示状態）
+.l-header__nav__accordion {
+    top: 70px;
+    left: 0;
+    display: none;
+    position: absolute;
+    background-color: white; // 必要に応じて背景色を設定
+    z-index: 1000; // メニューを前面に表示(1000じゃなくても良い）
+    transition: 0.3s; // トランジションの追加
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 10px;
         }
-        // .l-header__nav__accordion-second{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-        // .l-header__nav__accordion-third{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-        // .l-header__nav__accordion-forth{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-        // .l-header__nav__accordion-fifth{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-  
-
+    }
+}

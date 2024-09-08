@@ -66,6 +66,9 @@ a {
   background-color: #2498B3;
   color: #fff;
 }
+.l-header__nav__body li:hover .l-header__nav__accordion {
+  display: block;
+}
 .l-header__nav__body a {
   display: flex;
   margin: 0 auto;
@@ -79,9 +82,6 @@ a {
   height: 70px;
   align-items: center;
 }
-.l-header__nav__body li:hover .l-header__nav__accordion {
-  display: block;
-}
 
 .l-header__nav__accordion {
   top: 70px;
@@ -90,12 +90,15 @@ a {
   position: absolute;
   background-color: white;
   z-index: 1000;
+  transition: 0.3s;
 }
-.l-header .l-header__nav__accordion {
-  top: 70px;
-  left: 0;
-  display: none;
-  position: absolute;
+.l-header__nav__accordion ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.l-header__nav__accordion ul li {
+  padding: 10px;
 }
 
 .l-main {
