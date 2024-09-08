@@ -7,7 +7,7 @@
     -webkit-box-pack: justify;
     justify-content: space-between;
     background: #fff;
-    z-index: 1000;
+    z-index: 2000;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,9 +20,7 @@
             &__logo{
                 display: flex;
             }
-           //&__logo{
-               
-           // } 
+            
             img{
                 height: 33px;
                 width: auto;
@@ -40,16 +38,16 @@
                 strong{
                     font-size: 1.2rem;
                 }
-            }
+            }   
+        }
         
-    }
     &__link{
         display: flex;
         align-items: center;
         margin-left: auto;
-        font-weight: 700;
-        
-    }
+        font-weight: 700;   
+        }
+
     &__nav{
         height: 100%;
         display: flex;
@@ -61,7 +59,8 @@
             list-style: none;
             
                 li{
-                    display: inline-block;
+                    position: relative;
+                    display: flex;
                     height: auto;
                     transition: 0.3s;
                     &:last-child a{
@@ -86,5 +85,62 @@
                 }
             }
         }
+        
 }
+        .l-header__nav__accordion{
+            top: 70px;
+            left: 0;
+            display: none;
+            position: absolute;
+
+            .l-header__nav__body li :hover ul li{
+                display: block;
+                transition: 0.3s;
+            }
+        }
+        // .l-header__nav__accordion-second{
+        //     top: 70px;
+        //     left: 0;
+        //     display: none;
+        //     position: absolute;
+
+        //     &:hover li{
+        //         display: block;
+        //         transition: 0.3s;
+        //     }
+        // }
+        // .l-header__nav__accordion-third{
+        //     top: 70px;
+        //     left: 0;
+        //     display: none;
+        //     position: absolute;
+
+        //     &:hover li{
+        //         display: block;
+        //         transition: 0.3s;
+        //     }
+        // }
+        // .l-header__nav__accordion-forth{
+        //     top: 70px;
+        //     left: 0;
+        //     display: none;
+        //     position: absolute;
+
+        //     &:hover li{
+        //         display: block;
+        //         transition: 0.3s;
+        //     }
+        // }
+        // .l-header__nav__accordion-fifth{
+        //     top: 70px;
+        //     left: 0;
+        //     display: none;
+        //     position: absolute;
+
+        //     &:hover li{
+        //         display: block;
+        //         transition: 0.3s;
+        //     }
+        // }
+  
 
