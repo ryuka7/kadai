@@ -67,6 +67,9 @@
                         background-color: f.$link-lastchild;
                         color: #fff;
                     }
+                    &:hover .l-header__nav__accordion {
+                        display: block;
+                    }
                 }
                 a{
                     display: flex;
@@ -81,66 +84,27 @@
                         height: 70px;
                         align-items: center;
                     }
-                    
                 }
             }
         }
         
 }
-        .l-header__nav__accordion{
-            top: 70px;
-            left: 0;
-            display: none;
-            position: absolute;
+.l-header__nav__accordion {
+    top: 70px;
+    left: 0;
+    display: none;
+    position: absolute;
+    background-color: white; // 必要に応じて背景色を設定
+    z-index: 1000; // メニューを前面に表示(1000じゃなくても良い）
+    transition: 0.3s; // トランジションの追加
 
-            .l-header__nav__body li :hover ul li{
-                display: block;
-                transition: 0.3s;
-            }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 10px;
         }
-        // .l-header__nav__accordion-second{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-        // .l-header__nav__accordion-third{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-        // .l-header__nav__accordion-forth{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-        // .l-header__nav__accordion-fifth{
-        //     top: 70px;
-        //     left: 0;
-        //     display: none;
-        //     position: absolute;
-
-        //     &:hover li{
-        //         display: block;
-        //         transition: 0.3s;
-        //     }
-        // }
-  
-
+    }
+}
