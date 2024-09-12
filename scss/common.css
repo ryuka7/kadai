@@ -66,9 +66,12 @@ a {
   background-color: #2498B3;
   color: #fff;
 }
+.l-header__nav__body li:hover .l-header__nav__accordion {
+  display: block;
+}
 .l-header__nav__body a {
+  position: relative;
   display: flex;
-  margin: 0 auto;
   padding: 0 15px;
   color: #000;
   height: 70px;
@@ -78,12 +81,50 @@ a {
   background-color: #D4F1F8;
   height: 70px;
   align-items: center;
+  transition: 0.3s;
 }
-.l-header .l-header__nav__accordion {
+
+.l-header__nav__accordion {
   top: 70px;
   left: 0;
+  line-height: 1.7;
+  width: auto;
+  height: auto;
   display: none;
   position: absolute;
+  background-color: #E9F8FB;
+  z-index: 1000;
+  transition: 0.3s;
+  font-weight: 400;
+}
+.l-header__nav__accordion:last-child ul li a {
+  background-color: #E9F8FB;
+  color: #000;
+  height: auto;
+  white-space: nowrap;
+}
+.l-header__nav__accordion ul {
+  list-style: none;
+  padding: 0;
+}
+.l-header__nav__accordion ul li {
+  position: relative;
+  margin-left: 0;
+  padding: 15px 60px 20px 0px;
+  height: auto;
+  width: auto;
+  height: 60px;
+  white-space: nowrap;
+}
+.l-header__nav__accordion ul li:hover {
+  background-color: #fff;
+}
+.l-header__nav__accordion ul li:hover a {
+  color: cadetblue;
+}
+.l-header__nav__accordion ul a {
+  padding: 0;
+  margin: 15px;
 }
 
 .l-main {
