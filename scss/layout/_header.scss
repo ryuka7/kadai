@@ -67,8 +67,12 @@
                         background-color: f.$link-lastchild;
                         color: #fff;
                     }
+                    
                     &:hover .l-header__nav__accordion {
+                        // ホバー時のアニメーション
                         display: block;
+                        transform: scaleY(1);
+                        transition: all 0.3s;
                     }
                 }
                 a{
@@ -83,7 +87,7 @@
                         background-color: f.$link-hover;
                         height: 70px;
                         align-items: center;
-                        transition: 0.3s;
+                        transition: all 0.3s;
                     }
                 }
             }
@@ -96,17 +100,18 @@
     line-height: 1.7;
     width: auto;
     height: auto;
-    display: none;
+    // 非ホバー時ドロップダウンメニューを隠しておく
+    transform: scaleY(0);
+    transform-origin: center top;
     position: absolute;
-    background-color: #E9F8FB; // 必要に応じて背景色を設定
-    z-index: 1000; // メニューを前面に表示(1000じゃなくても良い）
-    transition: 0.3s; // トランジションの追加
+    background-color: #E9F8FB; 
+    z-index: 1000; 
+    transition:  0.3s;
     font-weight: 400;
 
     &:last-child ul li a{
         background-color: #E9F8FB;
         color: #000;
-        // padding: 10px;
         height: auto;
         white-space: nowrap;
     }
@@ -117,6 +122,7 @@
 
         li {
             position: relative;
+            cursor: pointer;
             margin-left: 0;
             padding: 15px 60px 20px 0px;
             height: auto;

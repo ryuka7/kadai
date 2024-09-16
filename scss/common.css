@@ -68,6 +68,8 @@ a {
 }
 .l-header__nav__body li:hover .l-header__nav__accordion {
   display: block;
+  transform: scaleY(1);
+  transition: all 0.3s;
 }
 .l-header__nav__body a {
   position: relative;
@@ -81,7 +83,7 @@ a {
   background-color: #D4F1F8;
   height: 70px;
   align-items: center;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 
 .l-header__nav__accordion {
@@ -90,7 +92,8 @@ a {
   line-height: 1.7;
   width: auto;
   height: auto;
-  display: none;
+  transform: scaleY(0);
+  transform-origin: center top;
   position: absolute;
   background-color: #E9F8FB;
   z-index: 1000;
@@ -109,6 +112,7 @@ a {
 }
 .l-header__nav__accordion ul li {
   position: relative;
+  cursor: pointer;
   margin-left: 0;
   padding: 15px 60px 20px 0px;
   height: auto;
