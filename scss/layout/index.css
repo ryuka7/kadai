@@ -97,7 +97,7 @@ a {
   position: absolute;
   background-color: #E9F8FB;
   z-index: 1000;
-  transition: 0.3s;
+  transition: 0;
   font-weight: 400;
 }
 .l-header__nav__accordion:last-child ul li a {
