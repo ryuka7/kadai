@@ -69,7 +69,7 @@ a {
 .l-header__nav__body li:hover .l-header__nav__accordion {
   display: block;
   transform: scaleY(1);
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 .l-header__nav__body a {
   position: relative;
