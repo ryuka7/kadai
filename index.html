@@ -148,14 +148,11 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     $(document).ready(function() {
-        // 事前に全てのアコーディオンメニューを非表示にする
         $(".l-header__nav__accordion").hide();
 
         $(".l-header__nav__body > li").hover(function() {
-            // マウスオーバーした要素の子要素（アコーディオン）だけをスライドダウン
             $(this).find(".l-header__nav__accordion").stop(true, true).slideDown("fast");
         }, function() {
-            // マウスが外れたら、その要素のアコーディオンメニューを非表示にする
             $(this).find(".l-header__nav__accordion").stop(true, true).hide();
         });
     });
