@@ -68,8 +68,6 @@ a {
 }
 .l-header__nav__body li:hover .l-header__nav__accordion {
   display: block;
-  transform: scaleY(1);
-  transition: all 0.2s;
 }
 .l-header__nav__body a {
   position: relative;
@@ -92,8 +90,7 @@ a {
   line-height: 1.7;
   width: auto;
   height: auto;
-  transform: scaleY(0);
-  transform-origin: center top;
+  display: none;
   position: absolute;
   background-color: #E9F8FB;
   z-index: 1000;

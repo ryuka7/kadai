@@ -71,8 +71,8 @@
                     &:hover .l-header__nav__accordion {
                         // ホバー時のアニメーション
                         display: block;
-                        transform: scaleY(1);
-                        transition: all 0.2s;
+                        // transform: scaleY(1);
+                        // transition: all 0.2s;
                     }
                 }
                 a{
@@ -101,8 +101,9 @@
     width: auto;
     height: auto;
     // 非ホバー時ドロップダウンメニューを隠しておく
-    transform: scaleY(0);
-    transform-origin: center top;
+    // transform: scaleY(0);
+    // transform-origin: center top;
+    display: none;
     position: absolute;
     background-color: #E9F8FB; 
     z-index: 1000; 
