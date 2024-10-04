@@ -57,7 +57,7 @@ a {
     display: none;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .l-header__title span {
     display: none;
   }
