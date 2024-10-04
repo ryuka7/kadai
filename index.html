@@ -21,16 +21,15 @@
                 <span class="l-header__logo__textAria">
                     最速で
                     <strong>「稼げる」</strong>
-                    ”プロになる”
+                    "プロになる"
                     <br>
-                    ”エンジニアリングスクール”
+                    "エンジニアリングスクール"
                 </span>
             </a>
         </p>
-        
     </div>
     <div class="l-header__link">
-        <div class="l-header__nav">
+        <nav class="l-header__nav">
             <ul class="l-header__nav__body">
                 <li><a href="#">はじめての方へ</a>
                     <div class="l-header__nav__accordion">
@@ -56,9 +55,7 @@
                         </ul>
                     </div>
                 </li>
-
                 <li><a href="#">講師紹介</a></li>
-
                 <li><a href="#">卒業生の声・実績</a>
                     <div class="l-header__nav__accordion">
                         <ul>
@@ -67,7 +64,6 @@
                         </ul>
                     </div>
                 </li>
-
                 <li><a href="#">メディア</a>
                     <div class="l-header__nav__accordion">
                         <ul>
@@ -86,10 +82,70 @@
                 </li>
                 <li><a href="#">受講お申し込み</a></li>
             </ul>
-        </div>
+        </nav>
     </div>
-
+    <div class="l-header__hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </header>
+
+<div class="mobile-menu">
+    <ul>
+        <li><a href="#">はじめての方へ</a>
+            <div class="l-header__nav__accordion">
+                <ul>
+                    <li><a href="#">マンガでわかるRaiseTech</a></li>
+                    <li><a href="#">サポート体制</a></li>
+                    <li><a href="#">トライアル受講</a></li>
+                    <li><a href="#">就職・転職支援制度</a></li>
+                    <li><a href="#">ご利用の流れ</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">コース案内</a>
+            <div class="l-header__nav__accordion">
+                <ul>
+                    <li><a href="#">マーケティングコース</a></li>
+                    <li><a href="#">デザインコース</a></li>
+                    <li><a href="#">WordPress副業コース</a></li>
+                    <li><a href="#">AWSフルコース</a></li>
+                    <li><a href="#">AWS自動化コース</a></li>
+                    <li><a href="#">Javaフルコース</a></li>
+                    <li><a href="#">Javaフレームワークコース</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">講師紹介</a></li>
+        <li><a href="#">卒業生の声・実績</a>
+            <div class="l-header__nav__accordion">
+                <ul>
+                    <li><a href="#">卒業生の声</a></li>
+                    <li><a href="#">転職・案件実績</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">メディア</a>
+            <div class="l-header__nav__accordion">
+                <ul>
+                    <li><a href="#">動画一覧</a></li>
+                    <li><a href="#">掲載記事一覧</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">サポート</a>
+            <div class="l-header__nav__accordion">
+                <ul>
+                    <li><a href="#">よくあるご質問</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">受講お申し込み</a></li>
+    </ul>
+</div>
+
 <main class="l-main">
     <div class="l-main__topHead">
         <div class="l-main__topHead__layer l-main__topHead__layer1">
@@ -122,7 +178,6 @@
                     <p>「プログラム」だけでは稼げない！ 現場で求められる「技術」のみ教えます。</p>
                 </div>
             </div>
-
             <div class="l-recomendation__entry">
                 <p class="l-recomendation__entry__icon"><i class="fa-regular fa-user"></i></p>
                 <div class="l-recomendation__entry__title">
@@ -132,7 +187,6 @@
                     <p>「今、求められている技術」をリアルタイムに教えてくれる、現役の技術者だけが講師です。</p>
                 </div>
             </div>
-
             <div class="l-recomendation__entry">
                 <p class="l-recomendation__entry__icon"><i class="fa-regular fa-user"></i></p>
                 <div class="l-recomendation__entry__title">
@@ -145,6 +199,7 @@
         </div>
     </div>
 </main>
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -154,6 +209,28 @@
             $(this).find(".l-header__nav__accordion").stop(true, true).slideDown("fast");
         }, function() {
             $(this).find(".l-header__nav__accordion").stop(true, true).hide();
+        });
+
+        // ハンバーガーメニューの動作
+        $('.l-header__hamburger').click(function() {
+            $(this).toggleClass('active');
+            $('.mobile-menu').toggleClass('active');
+        });
+
+        // モバイルメニューのアコーディオン
+        $('.mobile-menu > ul > li > a').click(function(e) {
+            if ($(this).next('.l-header__nav__accordion').length) {
+                e.preventDefault();
+                $(this).next('.l-header__nav__accordion').slideToggle();
+            }
+        });
+
+        // ウィンドウリサイズ時の処理
+        $(window).resize(function() {
+            if ($(window).width() > 1200) {
+                $('.l-header__hamburger').removeClass('active');
+                $('.mobile-menu').removeClass('active');
+            }
         });
     });
 </script>

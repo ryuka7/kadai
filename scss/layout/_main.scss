@@ -1,5 +1,10 @@
 .l-main{
+    min-height: 100vh;
     padding-top: 70px;
+
+    @media screen and (max-width: 1200px) {
+        padding-top: 50px;
+    }
     &__topHead{
         position: relative;
     height: 650px;
