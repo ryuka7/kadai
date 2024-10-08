@@ -117,7 +117,7 @@
                 </ul>
             </div>
         </li>
-        <li><a href="#">講師紹介</a></li>
+        <li class="teacher-intro"><a href="#">講師紹介</a></li>
         <li><a href="#">卒業生の声・実績</a>
             <div class="l-header__nav__accordion">
                 <ul>
@@ -142,12 +142,13 @@
                 </ul>
             </div>
         </li>
-        <li><a href="#">受講お申し込み</a></li>
     </ul>
 </div>
 
 <main class="l-main">
     <div class="l-main__topHead">
+        <div class="l-main__topHead__layer l-main__topHead__layer2">
+        </div>
         <div class="l-main__topHead__layer l-main__topHead__layer1">
             <div class="l-main__topHead__body">
                 <h1 class="l-main__topHead__tittle">
@@ -165,7 +166,6 @@
                 </p>
             </div>
         </div>
-        <div class="l-main__topHead__layer l-main__topHead__layer2"> </div>
     </div>
     <div class="l-recomendation__wrapper">
         <div class="l-recomendation">
@@ -202,37 +202,52 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $(".l-header__nav__accordion").hide();
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.l-header__hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
 
-        $(".l-header__nav__body > li").hover(function() {
-            $(this).find(".l-header__nav__accordion").stop(true, true).slideDown("fast");
-        }, function() {
-            $(this).find(".l-header__nav__accordion").stop(true, true).hide();
-        });
-
-        // ハンバーガーメニューの動作
-        $('.l-header__hamburger').click(function() {
-            $(this).toggleClass('active');
-            $('.mobile-menu').toggleClass('active');
-        });
-
-        // モバイルメニューのアコーディオン
-        $('.mobile-menu > ul > li > a').click(function(e) {
-            if ($(this).next('.l-header__nav__accordion').length) {
-                e.preventDefault();
-                $(this).next('.l-header__nav__accordion').slideToggle();
-            }
-        });
-
-        // ウィンドウリサイズ時の処理
-        $(window).resize(function() {
-            if ($(window).width() > 1200) {
-                $('.l-header__hamburger').removeClass('active');
-                $('.mobile-menu').removeClass('active');
-            }
-        });
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        
+        if (mobileMenu.classList.contains('active')) {
+            slideUp(mobileMenu, 300);
+        } else {
+            slideDown(mobileMenu, 300);
+        }
     });
+
+    function slideDown(element, duration) {
+        element.classList.add('active');
+        element.style.display = 'block';
+        element.style.height = 'auto';
+        const height = element.clientHeight + 'px';
+        element.style.height = '0px';
+
+        setTimeout(() => {
+            element.style.transition = `height ${duration}ms ease-in-out`;
+            element.style.height = height;
+        }, 0);
+
+        setTimeout(() => {
+            element.style.height = 'auto';
+        }, duration);
+    }
+
+    function slideUp(element, duration) {
+        element.style.height = element.clientHeight + 'px';
+
+        setTimeout(() => {
+            element.style.transition = `height ${duration}ms ease-in-out`;
+            element.style.height = '0px';
+        }, 0);
+
+        setTimeout(() => {
+            element.style.display = 'none';
+            element.style.height = 'auto';
+            element.classList.remove('active');
+        }, duration);
+    }
+});
 </script>
 
 </body>
