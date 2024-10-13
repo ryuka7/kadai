@@ -74,6 +74,9 @@
                     p{
                         margin: 0.5em 0;
                         font-size: 13px;
+                        @media screen and (max-width: 400px){
+                        white-space: wrap;
+                        }
                     }
                 }
             }
