@@ -370,7 +370,6 @@ a {
   justify-content: center;
   padding-top: 80px;
   background: transparent url(/images/bg-hero1.webp) no-repeat center center;
-  background-size: cover;
   z-index: 200;
 }
 @media screen and (max-width: 767px) {
@@ -435,7 +434,6 @@ a {
 }
 .l-main__topHead__layer2 {
   background: transparent url(/images/bg-hero2.webp) no-repeat center center;
-  background-size: cover;
   z-index: 100;
 }
 
