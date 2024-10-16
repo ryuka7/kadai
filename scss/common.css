@@ -361,7 +361,7 @@ a {
   .l-main__topHead__layer {
     align-items: flex-end;
     height: 320px;
-    width: 100vw;
+    width: 100%;
   }
 }
 .l-main__topHead__layer1 {
@@ -375,7 +375,7 @@ a {
 @media screen and (max-width: 767px) {
   .l-main__topHead__layer1 {
     height: 320px;
-    width: 100vw;
+    width: 100%;
     background-size: cover;
     align-items: flex-end;
     background-position: center -30px;
@@ -431,6 +431,11 @@ a {
 .l-main__topHead__tittle p {
   margin: 1em 0 1.5em;
   line-height: 1.8;
+}
+@media screen and (max-width: 767px) {
+  .l-main__topHead__tittle p {
+    margin-bottom: revert-layer;
+  }
 }
 .l-main__topHead__layer2 {
   background: transparent url(/images/bg-hero2.webp) no-repeat center center;
@@ -551,6 +556,10 @@ a {
     width: 100%;
   }
 }
+.c-btn {
+  transform-origin: center;
+  transition: 0.3s;
+}
 .c-btn a {
   padding: 24px 37px;
   font-size: 18px;
@@ -562,14 +571,15 @@ a {
   line-height: 1.3;
   display: inline-block;
   transition: 0.3s;
+  transform-origin: center;
 }
 @media (max-width: 767px) {
   .c-btn a {
-    height: 42px;
-    width: 228px;
+    transform: scale(0.9);
     transition: 0.3s;
+    transform-origin: center;
     font-size: 16px;
-    padding: 12px 18px;
+    padding: 14px 18px;
     white-space: nowrap;
   }
 }/*# sourceMappingURL=common.css.map */

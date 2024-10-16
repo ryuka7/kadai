@@ -208,7 +208,7 @@
             $(this).find(".l-header__nav__accordion").stop(true, true).hide();
         });
 // ここからモバイル画面
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.l-header__hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth >= 1200) {
             if (mobileMenu.classList.contains('active')) {
                 // 画面がPCサイズに戻ったら、モバイルメニューを非表示に
-                slideUp(mobileMenu, 0); 
+                slideUp(mobileMenu, 0); // 即座に非表示にするためdurationを0に
                 hamburger.classList.remove('active');
             }
         }
