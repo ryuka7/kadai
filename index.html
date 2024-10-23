@@ -206,8 +206,6 @@
         const mobileMenu = document.querySelector('.mobile-menu');
         const navItems = document.querySelectorAll('.mobile-menu > ul > li'); // モバイルメニューのリストアイテムを取得
         
-
-        
         // ハンバーガーメニューのクリックイベント
         hamburger.addEventListener('click', function() {
             this.classList.toggle('active');
@@ -220,7 +218,7 @@
             }
         });
 
-        // モバイルメニューのアコーディオンのホバーイベント
+        // アコーディオンのホバーイベント
         navItems.forEach(item => {
             const accordion = item.querySelector('.l-header__nav__accordion');
 
