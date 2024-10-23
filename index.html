@@ -201,121 +201,113 @@
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.l-header__hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const navItems = document.querySelectorAll('.mobile-menu > ul > li'); // モバイルメニューのリストアイテムを取得
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.l-header__hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navItems = document.querySelectorAll('.mobile-menu > ul > li'); // モバイルメニューのリストアイテムを取得
+        
 
-    // ハンバーガーメニューのクリックイベント
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
+        
+        // ハンバーガーメニューのクリックイベント
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
 
-        if (mobileMenu.classList.contains('active')) {
-            slideDown(mobileMenu, 300);
-        } else {
-            slideUp(mobileMenu, 300);
-        }
-    });
+            if (mobileMenu.classList.contains('active')) {
+                slideDown(mobileMenu, 300);
+            } else {
+                slideUp(mobileMenu, 300);
+            }
+        });
 
-    // モバイルメニューのアコーディオンのクリックイベント
-    navItems.forEach(item => {
-        const accordion = item.querySelector('.l-header__nav__accordion');
+        // モバイルメニューのアコーディオンのホバーイベント
+        navItems.forEach(item => {
+            const accordion = item.querySelector('.l-header__nav__accordion');
 
-        // 親要素をクリックしたときのイベント
-        item.addEventListener('click', function(event) {
-            event.stopPropagation(); // イベントのバブリングを防ぐ
-
-            // すべてのアコーディオンを非表示にする
-            navItems.forEach(otherItem => {
-                const otherAccordion = otherItem.querySelector('.l-header__nav__accordion');
-                if (otherAccordion && otherAccordion !== accordion) {
-                    slideUp(otherAccordion, 200); // 他のアコーディオンをスライドアップ
-                    otherItem.classList.remove('active'); // 他のアイテムのアクティブクラスを削除
-                    otherItem.classList.remove('has-active'); // 他のアイテムのhas-activeクラスを削除
-                    otherItem.style.height = 'auto'; // 他のアイテムの高さをリセット
-                }
-            });
-
-            // クリックしたアコーディオンの表示を切り替える
-            if (accordion) {
-                if (accordion.classList.contains('active')) {
-                    slideUp(accordion, 200);
-                    item.classList.remove('active'); // アクティブクラスを削除
-                    item.style.height = 'auto'; // 高さをリセット
-                } else {
+            // ホバー時のイベント
+            item.addEventListener('mouseenter', function() {
+                if (accordion) {
                     slideDown(accordion, 200);
                     item.classList.add('active'); // アクティブクラスを追加
 
-                    // 1階層目のulタグの高さを増やす
-                    item.style.height = (item.scrollHeight + accordion.scrollHeight) + 'px'; // 高さを設定
+                    // 親要素の高さを増やす
+                    const parentHeight = item.scrollHeight + accordion.scrollHeight;
+                    item.style.height = parentHeight + 'px'; // 親要素の高さを設定
+                    item.style.transition = 'height 200ms ease-in-out'; // トランジションを設定
+                    setTimeout(function() {
+                        item.style.height = parentHeight + 'px'; // 親要素の高さを設定
+                    }, 0);
+                }
+            });
+
+            // ホバーが外れたときのイベント
+            item.addEventListener('mouseleave', function() {
+                if (accordion) {
+                    slideUp(accordion, 200);
+                    item.classList.remove('active'); // アクティブクラスを削除
+                    item.style.height = 'auto'; // 高さをリセット
+                }
+            });
+        });
+
+                // モバイルメニューのリンクをホバーした際のイベント
+                mobileMenu.querySelectorAll('ul > li > a').forEach(link => {
+            link.addEventListener('mouseenter', function(event) { // 'mouseover'から'mouseenter'に変更
+                // すべてのリンクからアクティブクラスを削除
+                mobileMenu.querySelectorAll('ul > li > a').forEach(otherLink => {
+                    otherLink.classList.remove('active');
+                });
+                // ホバーされたリンクにアクティブクラスを追加
+                this.classList.add('active');
+            });
+            link.addEventListener('mouseleave', function(event) { // 'mouseleave'イベントを追加
+                this.classList.remove('active'); // ホバーが外れたときにアクティブクラスを削除
+            });
+        });
+
+        // 画面サイズの変化を監視して、1200px以上の場合にモバイルメニューを閉じる
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1200) {
+                if (mobileMenu.classList.contains('active')) {
+                    slideUp(mobileMenu, 0); // 即座に非表示にするためdurationを0に
+                    hamburger.classList.remove('active');
                 }
             }
-
-            // アクティブクラスを付与した際に::beforeと::afterのスタイルを変更
-            if (item.classList.contains('active')) {
-                item.classList.add('has-active'); // has-activeクラスを追加
-            } else {
-                item.classList.remove('has-active'); // has-activeクラスを削除
-            }
         });
-    });
 
-    // モバイルメニューのリンクをクリックした際のイベント
-    mobileMenu.querySelectorAll('ul > li > a').forEach(link => {
-        link.addEventListener('click', function(event) {
-            // すべてのリンクからアクティブクラスを削除
-            mobileMenu.querySelectorAll('ul > li > a').forEach(otherLink => {
-                otherLink.classList.remove('active');
-            });
-            // クリックされたリンクにアクティブクラスを追加
-            this.classList.add('active');
-        });
-    });
+        // スライドダウンの関数
+        function slideDown(element, duration) {
+            element.style.display = 'block'; // 最初に表示をブロックに設定
+            element.style.height = 'auto'; // 高さを自動に設定
+            const height = element.scrollHeight + 'px'; // 高さを取得
+            element.style.height = '0px'; // 初期高さを0に設定
 
-    // 画面サイズの変化を監視して、1200px以上の場合にモバイルメニューを閉じる
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 1200) {
-            if (mobileMenu.classList.contains('active')) {
-                slideUp(mobileMenu, 0); // 即座に非表示にするためdurationを0に
-                hamburger.classList.remove('active');
-            }
+            setTimeout(function() {
+                element.style.transition = `height ${duration}ms ease-in-out`; // トランジションを設定
+                element.style.height = height; // 高さを設定
+                element.classList.add('active'); // activeクラスを追加
+            }, 0);
+
+            setTimeout(function() {
+                element.style.height = 'auto'; // 高さを自動に戻す
+            }, duration);
+        }
+
+        // スライドアップの関数
+        function slideUp(element, duration) {
+            element.style.height = element.scrollHeight + 'px'; // 現在の高さを設定
+
+            setTimeout(function() {
+                element.style.transition = `height ${duration}ms ease-in-out`; // トランジションを設定
+                element.style.height = '0px'; // 高さを0に設定
+            }, 0);
+
+            setTimeout(function() {
+                element.style.display = 'none'; // 非表示にする
+                element.classList.remove('active'); // activeクラスを削除
+            }, duration);
         }
     });
-
-    // スライドダウンの関数
-    function slideDown(element, duration) {
-        element.style.display = 'block'; // 最初に表示をブロックに設定
-        element.style.height = 'auto'; // 高さを自動に設定
-        const height = element.scrollHeight + 'px'; // 高さを取得
-        element.style.height = '0px'; // 初期高さを0に設定
-
-        setTimeout(function() {
-            element.style.transition = `height ${duration}ms ease-in-out`; // トランジションを設定
-            element.style.height = height; // 高さを設定
-            element.classList.add('active'); // activeクラスを追加
-        }, 0);
-
-        setTimeout(function() {
-            element.style.height = 'auto'; // 高さを自動に戻す
-        }, duration);
-    }
-
-    // スライドアップの関数
-    function slideUp(element, duration) {
-        element.style.height = element.scrollHeight + 'px'; // 現在の高さを設定
-
-        setTimeout(function() {
-            element.style.transition = `height ${duration}ms ease-in-out`; // トランジションを設定
-            element.style.height = '0px'; // 高さを0に設定
-        }, 0);
-
-        setTimeout(function() {
-            element.style.display = 'none'; // 非表示にする
-            element.classList.remove('active'); // activeクラスを削除
-        }, duration);
-    }
-});
 </script>
 
 </body>
