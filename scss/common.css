@@ -373,11 +373,11 @@ a {
     color: #000;
     outline: none;
   }
-  .mobile-menu ul li.has-active::before {
+  .mobile-menu > ul > li.active::before {
     background: #000;
     z-index: 3000;
   }
-  .mobile-menu ul li.has-active::after {
+  .mobile-menu > ul > li.active::after {
     height: 50px;
     width: 50px;
     right: 0;
